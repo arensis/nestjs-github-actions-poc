@@ -1,3 +1,5 @@
+name: print github context properties
+
 on: [workflow_dispatch, release, push]
 
 jobs:
@@ -6,4 +8,27 @@ jobs:
 
     steps:
       - name: print github event name
-        run: echo !${{ github.event_name }}!
+        run: echo start|${{ github.event_name }}|end
+
+      - name: push properties
+        if: ${{ github.event_name == 'push' }}
+        run: |
+          echo start|${{ github.event.author }}|end
+          echo start|${{ github.event.comments }}|end
+          echo start|${{ github.event.committedDate }}|end
+          echo start|${{ github.event.committer }}|end
+          echo start|${{ github.event.message }}|end
+          echo start|${{ github.event.oid }}|end
+          echo start|${{ github.event.status }}|end
+      - name: workflow_dispatch
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          echo start|${{ github.event.enterprise }}|end
+          echo start|${{ github.event.inputs }}|end
+          echo start|${{ github.event.installation }}|end
+          echo start|${{ github.event.organization }}|end
+          echo start|${{ github.event.ref }}|end
+          echo start|${{ github.event.repository }}|end
+          echo start|${{ github.event.sender }}|end
+          echo start|${{ github.event.workflow }}|end
+          
