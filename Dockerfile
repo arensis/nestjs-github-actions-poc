@@ -5,7 +5,6 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 COPY ./tsconfig*.json .
 COPY ./nest-cli.json .
-COPY ./tslint.json .
 COPY ./src ./src
 
 RUN npm ci
