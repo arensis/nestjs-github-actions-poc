@@ -10,8 +10,8 @@ jobs:
       - name: print github event name
         run: echo !${{ github.event_name }}!
 
-      - name: event properties
+      - name: github context properties
         env:
-          GITHUB_EVENT_CONTEXT: ${{ toJson(github.event) }}
-        run: echo "$GITHUB_EVENT_CONTEXT"
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
           
