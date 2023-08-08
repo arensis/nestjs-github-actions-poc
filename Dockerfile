@@ -19,10 +19,6 @@ COPY --from=api-builder /usr/src/api/dist ./dist
 COPY --from=api-builder /usr/src/api/package.json .
 COPY --from=api-builder /usr/src/api/node_modules ./node_modules
 
-COPY ./static ./static
-COPY ./templates ./templates
-COPY ./locales ./locales
-
 EXPOSE 3000
 
 CMD ["node dist/main.js"]
