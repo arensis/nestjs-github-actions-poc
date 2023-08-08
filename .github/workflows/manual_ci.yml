@@ -5,10 +5,11 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [20.x]
+        os: [ubuntu-latest, macOS-latest]
+        node-version: [20.x, 18.x]
     
     steps:
     - name: Copy repository
@@ -26,10 +27,11 @@ jobs:
         npm run build
         
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [20.x]
+        os: [ubuntu-latest, macOS-latest]
+        node-version: [20.x, 18.x]
 
     steps:
     - name: Copy repository
