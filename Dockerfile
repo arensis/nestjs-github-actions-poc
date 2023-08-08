@@ -14,9 +14,9 @@ FROM node:20
 
 WORKDIR /usr/src/server
 
-COPY --from=api-builder /usr/src/api/dist ./dist
-COPY --from=api-builder /usr/src/api/package.json .
-COPY --from=api-builder /usr/src/api/node_modules ./node_modules
+COPY --from=api-builder /usr/src/app/dist ./dist
+COPY --from=api-builder /usr/src/app/package.json .
+COPY --from=api-builder /usr/src/app/node_modules ./node_modules
 
 EXPOSE 3000
 
