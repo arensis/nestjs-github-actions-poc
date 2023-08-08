@@ -6,4 +6,4 @@ jobs:
 
     steps:
       - name: print github event name
-        run: echo ${{ github.event.name }}
+        run: echo !${{ github.event.name }}!
