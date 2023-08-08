@@ -25,9 +25,6 @@ jobs:
       run: |
         npm ci
         npm run build
-
-    - name: Cancell all jobs if fails
-      uses: andymckay/cancel-action@0.3
         
   test:
     runs-on: ubuntu-latest
@@ -47,5 +44,13 @@ jobs:
         npm ci
         npm run test
 
-    - name: Cancell all jobs if fails
+  cancelling:
+    runs-on: ubuntu-latest
+    needs: [build, test]
+
+    steps:
+    - name: Cancell all jobs if some of them fails
+      if: ${{ failure() }}
       uses: andymckay/cancel-action@0.3
+      
+    
