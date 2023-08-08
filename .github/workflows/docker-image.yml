@@ -30,6 +30,7 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
     - name: Build and push image with release tag
+      if: ${{ github.event_name == 'release' }}
       uses: docker/build-push-action@v4
       with:
         context: .
