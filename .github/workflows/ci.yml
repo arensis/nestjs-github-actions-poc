@@ -1,6 +1,8 @@
 name: Basic CI NestJS project with DockerHub
 
 on:
+  push: 
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
