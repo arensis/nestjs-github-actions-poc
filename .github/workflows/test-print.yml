@@ -8,27 +8,27 @@ jobs:
 
     steps:
       - name: print github event name
-        run: echo start|${{ github.event_name }}|end
+        run: echo !${{ github.event_name }}!
 
       - name: push properties
         if: ${{ github.event_name == 'push' }}
         run: |
-          echo start|${{ github.event.author }}|end
-          echo start|${{ github.event.comments }}|end
-          echo start|${{ github.event.committedDate }}|end
-          echo start|${{ github.event.committer }}|end
-          echo start|${{ github.event.message }}|end
-          echo start|${{ github.event.oid }}|end
-          echo start|${{ github.event.status }}|end
-      - name: workflow_dispatch
+          echo !${{ github.event.author }}!
+          echo !${{ github.event.comments }}!
+          echo !${{ github.event.committedDate }}!
+          echo !${{ github.event.committer }}!
+          echo !${{ github.event.message }}!
+          echo !${{ github.event.oid }}!
+          echo !${{ github.event.status }}!
+      - name: workflow_dispatch properties
         if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
-          echo start|${{ github.event.enterprise }}|end
-          echo start|${{ github.event.inputs }}|end
-          echo start|${{ github.event.installation }}|end
-          echo start|${{ github.event.organization }}|end
-          echo start|${{ github.event.ref }}|end
-          echo start|${{ github.event.repository }}|end
-          echo start|${{ github.event.sender }}|end
-          echo start|${{ github.event.workflow }}|end
+          echo !${{ github.event.enterprise }}!
+          echo !${{ github.event.inputs }}!
+          echo !${{ github.event.installation }}!
+          echo !${{ github.event.organization }}!
+          echo !${{ github.event.ref }}!
+          echo !${{ github.event.repository }}!
+          echo !${{ github.event.sender }}!
+          echo !${{ github.event.workflow }}!
           
