@@ -5,50 +5,11 @@ on:
     types: [published]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20.x]
-    
-    steps:
-    - name: Copy repository
-      uses: actions/checkout@v3
-
-    - name: Set up Node v20
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-
-    - name: Build with NPM
-      run: |
-        npm ci
-        npm run build
-        
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20.x]
-
-    steps:
-    - name: Copy repository
-      uses: actions/checkout@v3
-
-    - name: Set up Node v20
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-
-    - name: Run tests
-      run: |
-        npm ci
-        npm run test
+  build-tests:
+    uses: arensis/nestjs-github-actions-poc/.github/workflows/ci.yml@main
         
   docker:
-    needs: [build, test]
+    needs: [build-tests]
     runs-on: ubuntu-latest
 
     steps:
