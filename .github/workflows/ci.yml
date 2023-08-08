@@ -1,6 +1,7 @@
-name: Basic CI NestJS project with DockerHub
+name: Install dependencies, build and run tests
 
 on:
+  workflow_call:
   push: 
     branches: [ "main" ]
   pull_request:
