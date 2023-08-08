@@ -1,0 +1,9 @@
+on: [workflow_dispatch, release, push]
+
+jobs:
+  print-context-variables:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: print github event name
+        run: echo ${{ github.event.name }}
