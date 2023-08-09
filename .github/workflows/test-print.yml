@@ -1,6 +1,6 @@
 name: print github context properties
 
-on: [workflow_dispatch, release, push]
+on: workflow_dispatch
 
 jobs:
   print-context-variables:
