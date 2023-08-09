@@ -1,4 +1,4 @@
-name: Build and push a docker on release published
+name: Docker_Build and push image to DockerHub
 
 on:
   workflow_dispatch:
