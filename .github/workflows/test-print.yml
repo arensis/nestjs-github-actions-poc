@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: print short last commit
         env:
-          SHORT_COMMIT_HASH: ${{ github.event.after::7 }}
+          SHORT_COMMIT_HASH: $(echo ${{ github.sha }} | cut -c1-7)
         run: echo "$SHORT_COMMIT_HASH"
         
       - name: print github event name
