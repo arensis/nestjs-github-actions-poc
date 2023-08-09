@@ -7,6 +7,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: check node version
+        run: echo "node -v"
+
+      - name: check java version
+        run: echo "java --v"
+
       - name: print short last commit
         env:
           SHORT_COMMIT_HASH: $(echo ${{ github.sha }} | cut -c1-7)
