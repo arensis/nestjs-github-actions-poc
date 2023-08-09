@@ -8,10 +8,10 @@ jobs:
 
     steps:
       - name: check node version
-        run: echo node -v
+        run: echo $(node -v)
 
       - name: check java version
-        run: echo java --v
+        run: echo $(java --v)
 
       - name: print short last commit
         env:
