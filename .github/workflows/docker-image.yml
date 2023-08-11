@@ -30,7 +30,7 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
     - name: Build and push image with release tag
-      if: ${{ github.event_name == 'release' }}
+      if: github.event_name == 'release'
       uses: docker/build-push-action@v4
       with:
         context: .
@@ -38,7 +38,7 @@ jobs:
         tags: ${{ secrets.DOCKER_HUB_REPOSITORY }}:${{ github.event.tag_name }}
 
     - name: Build and push image with latest tag
-      if: ${{ github.event_name == 'release' }}
+      if: github.event_name == 'release'
       uses: docker/build-push-action@v4
       with:
         context: .
@@ -46,12 +46,12 @@ jobs:
         tags: ${{ secrets.DOCKER_HUB_REPOSITORY }}:latest
 
     - name: Set outputs
-      if: ${{ github.event_name != 'release' }}
+      if: github.event_name != 'release'
       id: vars
       run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
     - name: Build and push image with latest tag
-      if: ${{ github.event_name != 'release' }}
+      if: github.event_name != 'release'
       uses: docker/build-push-action@v4
       with:
         context: .
