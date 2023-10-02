@@ -1,0 +1,31 @@
+name: 'Node Basic CI Unix Action'
+description: 'Node Basic CI action that installs node, project dependencies, runs project build and runs project tests on a unix based OS'
+inputs:
+  node-version:
+    description: 'Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.'
+    required: false
+    default: 20.x
+  cache:
+    description: 'Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.'
+    required: false
+    default: 'npm'
+runs:
+  using: "composite"
+  steps:
+    - name: Setting up node version ${{inputs.node-version}}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: ${{ inputs.cache }}
+
+    - name: Installing dependencies
+      run: npm ci
+      shell: bash
+
+    - name: Building app
+      run: npm run build
+      shell: bash
+
+    - name: Running the tests
+      run: npm run test
+      shell: bash
