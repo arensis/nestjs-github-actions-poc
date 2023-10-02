@@ -4,7 +4,6 @@
     <img src="static/assets/images/github-actions-logo.png" width="75" alt="Worldline - Edgeless logo" />
   </a>
   <h2>Github Actions example for NestJS project</h2>
-  <h2>(Workflows and Actions)<h2>
 </div>
 
 <br>
