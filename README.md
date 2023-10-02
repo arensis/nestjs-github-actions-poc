@@ -12,8 +12,6 @@
 Github Actions is a CI/CD solution for repositories located in github platform. The CI/CD task will be executed triggered by repository events. 
 We have two main concepts on Github Actions:
 
-<br>
-
 ### Workflows
 A workflow is a set of task that will be perform when a repository event is triggered. The type of event that must be execute a workflow is configured in a workflow property.
 A workflow is defined by a YAML file and must be included under the path `.github/workflows` in the root of the repository files.
@@ -21,8 +19,6 @@ A workflow is defined by a YAML file and must be included under the path `.githu
 A workflow execute an aggrupation of task called *jobs* in parallel, and each job is executed in an individual virtual machines called *runners* (hosted by github or an external self-hosted runners).
 
 A workflow can be reused by other workflows in a job, but the job cannot have any other steps that the reusable workflow and have some usage limitations that you can find in the documentation
-
-<br>
 
 ### Actions
 An action is an individual task that you can combine to create jobs and custom a workflow. Unlike reusing workflows an action can be used as an additional job steb, for this reason you can use more than one action in the same workflow job. The syntax of the actions is similar than the workflow syntax and are defined by a YAML file with some differences.
