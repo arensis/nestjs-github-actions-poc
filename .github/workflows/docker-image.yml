@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-tests:
-    uses: ./.github/workflows/ci
+    uses: arensis/nestjs-github-actions-poc/.github/workflows/ci.yml@main
         
   docker:
     needs: [build-tests]
