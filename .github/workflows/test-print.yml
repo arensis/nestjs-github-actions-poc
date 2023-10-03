@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: print secrets
+        run: |
+          echo !${{ secrets.DOCKER_HUB_REPOSITORY }}!
+          
       - name: check node version
         run: echo $(node -v)
 
