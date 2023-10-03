@@ -40,7 +40,7 @@ jobs:
     - name: Print metadata
       run: | 
         echo ${{ steps.meta.outputs.tags }}
-        echo ${{ steps.meta.outputs.labels }}
+        echo ${{ secrets.DOCKER_HUB_REPOSITORY }}
 
     - name: Build and push image with release tag
       if: github.event_name == 'release'
