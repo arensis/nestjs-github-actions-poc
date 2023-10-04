@@ -16,12 +16,9 @@ runs:
     with:
       node-version: ${{ inputs.node-version }}
       cache: ${{ inputs.cache }}
-
     run: npm ci
     shell: bash
-
     run: npm run build
     shell: bash
-    
     run: npm run test
     shell: bash
