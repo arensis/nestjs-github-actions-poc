@@ -12,20 +12,16 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Setting up node version ${{inputs.node-version}}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ inputs.node-version }}
-        cache: ${{ inputs.cache }}
+    uses: actions/setup-node@v3
+    with:
+      node-version: ${{ inputs.node-version }}
+      cache: ${{ inputs.cache }}
 
-    - name: Installing dependencies
-      run: npm ci
-      shell: bash
+    run: npm ci
+    shell: bash
 
-    - name: Building app
-      run: npm run build
-      shell: bash
-
-    - name: Running the tests
-      run: npm run test
-      shell: bash
+    run: npm run build
+    shell: bash
+    
+    run: npm run test
+    shell: bash
